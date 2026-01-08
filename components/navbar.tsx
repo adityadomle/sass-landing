@@ -54,7 +54,7 @@ export function Navbar() {
             ))}
           </div>
 
-          {/* Desktop CTAs */}
+          {/* Desktop CTAs (UNCHANGED) */}
           <div className="hidden md:flex items-center gap-4">
             <Link
               href="#login"
@@ -107,33 +107,16 @@ export function Navbar() {
             ))}
           </div>
 
-          {/* Mobile CTAs (FIXED) */}
+          {/* Mobile CTAs (FIXED: only Login) */}
           <div className="mt-3 pt-3 border-t border-white/10 flex flex-col gap-2">
-  <Link
-    href="#login"
-    onClick={() => setMobileMenuOpen(false)}
-    className="w-full py-2 text-xs text-white/70 text-center hover:text-white hover:bg-white/5 rounded transition"
-  >
-    Log in
-  </Link>
-
-  <Link
-    href="#get-started"
-    onClick={() => setMobileMenuOpen(false)}
-    className="w-full py-2 text-xs font-medium bg-white text-black rounded text-center hover:bg-white/90 transition"
-  >
-    Get Started
-  </Link>
-
-  <Link
-    href="#start-free"
-    onClick={() => setMobileMenuOpen(false)}
-    className="w-full py-2 text-xs font-medium border border-white/20 rounded text-center hover:bg-white/5 transition"
-  >
-    Start Free
-  </Link>
-</div>
-
+            <Link
+              href="#login"
+              onClick={() => setMobileMenuOpen(false)}
+              className="w-full py-2 text-xs text-white/70 text-center hover:text-white hover:bg-white/5 rounded transition"
+            >
+              Log in
+            </Link>
+          </div>
         </div>
       </div>
     </nav>
