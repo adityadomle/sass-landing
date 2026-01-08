@@ -106,17 +106,6 @@ export function Navbar() {
               </Link>
             ))}
           </div>
-
-          {/* Mobile CTAs (FIXED: only Login) */}
-          <div className="mt-3 pt-3 border-t border-white/10 flex flex-col gap-2">
-            <Link
-              href="#login"
-              onClick={() => setMobileMenuOpen(false)}
-              className="w-full py-2 text-xs text-white/70 text-center hover:text-white hover:bg-white/5 rounded transition"
-            >
-              Log in
-            </Link>
-          </div>
         </div>
       </div>
     </nav>
