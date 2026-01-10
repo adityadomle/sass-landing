@@ -1,7 +1,7 @@
 const features = [
   {
     icon: (
-      <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+      <svg className="w-4 h-4 md:w-5 md:h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
         <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
       </svg>
     ),
@@ -10,7 +10,7 @@ const features = [
   },
   {
     icon: (
-      <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+      <svg className="w-4 h-4 md:w-5 md:h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -23,7 +23,7 @@ const features = [
   },
   {
     icon: (
-      <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+      <svg className="w-4 h-4 md:w-5 md:h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -36,7 +36,7 @@ const features = [
   },
   {
     icon: (
-      <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+      <svg className="w-4 h-4 md:w-5 md:h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -49,7 +49,7 @@ const features = [
   },
   {
     icon: (
-      <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+      <svg className="w-4 h-4 md:w-5 md:h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -62,7 +62,7 @@ const features = [
   },
   {
     icon: (
-      <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+      <svg className="w-4 h-4 md:w-5 md:h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -77,28 +77,28 @@ const features = [
 
 export function FeaturesSection() {
   return (
-    <section id="features" className="relative py-20 lg:py-28">
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-md mb-12">
-          <h2 className="text-2xl font-medium mb-3">
+    <section id="features" className="relative py-24 sm:py-28 md:py-32 lg:py-40 xl:py-48">
+      <div className="w-full max-w-7xl md:max-w-full mx-auto px-5 sm:px-6 md:px-12 lg:px-16 xl:px-20">
+        <div className="max-w-md md:max-w-2xl lg:max-w-3xl mb-14 md:mb-16 lg:mb-20">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium mb-4 md:mb-5">
             Built for <span className="text-primary">scale</span>
           </h2>
-          <p className="text-xs text-muted-foreground leading-relaxed">
+          <p className="text-xs sm:text-sm md:text-base lg:text-lg text-muted-foreground leading-relaxed">
             Everything you need to build production AI applications.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 lg:gap-6 xl:gap-8">
           {features.map((feature, i) => (
             <div
               key={i}
-              className="group p-4 rounded border border-white/5 bg-white/[0.02] hover:border-white/10 hover:bg-white/[0.04] transition-all duration-150"
+              className="group p-5 md:p-6 lg:p-7 xl:p-8 rounded border border-white/5 bg-white/[0.02] hover:border-white/10 hover:bg-white/[0.04] transition-all duration-150"
             >
-              <div className="w-8 h-8 rounded bg-white/5 flex items-center justify-center text-primary mb-3">
+              <div className="w-9 h-9 md:w-10 md:h-10 lg:w-12 lg:h-12 rounded bg-white/5 flex items-center justify-center text-primary mb-4 md:mb-5">
                 {feature.icon}
               </div>
-              <h3 className="text-xs font-medium mb-1">{feature.title}</h3>
-              <p className="text-[11px] text-muted-foreground leading-relaxed">{feature.desc}</p>
+              <h3 className="text-xs sm:text-sm md:text-base font-medium mb-2 md:mb-2.5">{feature.title}</h3>
+              <p className="text-[11px] sm:text-xs md:text-sm text-muted-foreground leading-relaxed">{feature.desc}</p>
             </div>
           ))}
         </div>
