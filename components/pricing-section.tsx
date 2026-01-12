@@ -100,7 +100,7 @@ export function PricingSection() {
               >
                 {tier.cta}
               </Link>
-            </div>
+            </div> 
           ))}
         </div>
       </div>

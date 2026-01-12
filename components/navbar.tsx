@@ -23,11 +23,10 @@ export function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-150 ${
-        scrolled || mobileMenuOpen
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-150 ${scrolled || mobileMenuOpen
           ? "bg-black/95 backdrop-blur-md border-b border-white/10"
           : "bg-transparent"
-      }`}
+        }`}
     >
       <div className="max-w-7xl md:max-w-full md:px-12 lg:px-16 xl:px-20 mx-auto px-5 sm:px-6">
         <div className="flex h-14 md:h-16 items-center justify-between">
@@ -57,7 +56,7 @@ export function Navbar() {
           {/* Desktop CTAs */}
           <div className="hidden md:flex items-center gap-5 lg:gap-6">
             <Link
-              href="#login"
+              href="/login"
               className="text-xs md:text-sm text-white/70 hover:text-white transition-colors"
             >
               Log in
@@ -89,9 +88,8 @@ export function Navbar() {
 
       {/* Mobile menu */}
       <div
-        className={`md:hidden overflow-hidden transition-all duration-200 ${
-          mobileMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-        }`}
+        className={`md:hidden overflow-hidden transition-all duration-200 ${mobileMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+          }`}
       >
         <div className="px-4 py-4 bg-black/95 border-t border-white/10">
           <div className="flex flex-col gap-1">
