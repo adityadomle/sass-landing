@@ -22,7 +22,7 @@ export function HeroSection() {
 
           <div className="flex flex-col sm:flex-row gap-3 md:gap-4 lg:gap-5">
             <Link
-              href="#get-started"
+              href="/signup"
               className="px-5 py-2.5 md:px-6 md:py-3 lg:px-8 lg:py-3.5 text-xs sm:text-sm md:text-base font-medium bg-white text-black rounded hover:bg-white/90 transition-colors duration-150 text-center"
             >
               Start Free

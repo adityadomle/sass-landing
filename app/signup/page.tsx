@@ -5,7 +5,7 @@ import { Label } from "@/components/ui/label"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 
-export default function LoginPage() {
+export default function SignupPage() {
     return (
         <div className="min-h-screen bg-background relative flex flex-col">
             <Navbar />
@@ -20,14 +20,26 @@ export default function LoginPage() {
             <main className="flex-1 flex items-center justify-center p-5 sm:p-6 pt-20 pb-10">
                 <div className="w-full max-w-[400px] mx-auto z-10">
                     <div className="flex flex-col text-center mb-8">
-                        <h1 className="text-2xl sm:text-3xl font-medium tracking-tight mb-2">Welcome back</h1>
+                        <h1 className="text-2xl sm:text-3xl font-medium tracking-tight mb-2">Create an account</h1>
                         <p className="text-sm text-muted-foreground">
-                            Enter your email to sign in to your account
+                            Enter your information to get started
                         </p>
                     </div>
 
                     <div className="p-6 sm:p-8 rounded-lg border border-white/5 bg-white/[0.02] backdrop-blur-sm">
                         <form className="space-y-4">
+                            <div className="space-y-2">
+                                <Label htmlFor="name">Full Name</Label>
+                                <Input
+                                    id="name"
+                                    placeholder="John Doe"
+                                    type="text"
+                                    autoCapitalize="words"
+                                    autoComplete="name"
+                                    autoCorrect="off"
+                                    className="bg-white/5 border-white/10 text-white placeholder:text-muted-foreground/50 focus:border-primary/50 focus:ring-primary/20"
+                                />
+                            </div>
                             <div className="space-y-2">
                                 <Label htmlFor="email">Email</Label>
                                 <Input
@@ -41,15 +53,7 @@ export default function LoginPage() {
                                 />
                             </div>
                             <div className="space-y-2">
-                                <div className="flex items-center justify-between">
-                                    <Label htmlFor="password">Password</Label>
-                                    <Link
-                                        href="#"
-                                        className="text-xs text-primary hover:text-primary/80 transition-colors"
-                                    >
-                                        Forgot password?
-                                    </Link>
-                                </div>
+                                <Label htmlFor="password">Password</Label>
                                 <Input
                                     id="password"
                                     type="password"
@@ -57,7 +61,7 @@ export default function LoginPage() {
                                 />
                             </div>
                             <Button type="submit" className="w-full bg-white text-black hover:bg-white/90">
-                                Sign In
+                                Sign Up
                             </Button>
                         </form>
 
@@ -90,9 +94,9 @@ export default function LoginPage() {
                         </div>
 
                         <p className="mt-6 text-center text-xs text-muted-foreground">
-                            Don&apos;t have an account?{" "}
-                            <Link href="/signup" className="text-primary hover:underline">
-                                Sign up
+                            Already have an account?{" "}
+                            <Link href="/login" className="text-primary hover:underline">
+                                Sign in
                             </Link>
                         </p>
                     </div>

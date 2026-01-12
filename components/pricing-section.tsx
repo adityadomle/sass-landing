@@ -8,7 +8,7 @@ const tiers = [
     description: "For individuals and hobbyists.",
     features: ["5,000 requests per month", "Basic analytics", "Community support", "1 API key"],
     cta: "Start Free",
-    href: "#",
+    href: "/signup",
     featured: false,
   },
   {
@@ -23,7 +23,7 @@ const tiers = [
       "Custom rate limits",
     ],
     cta: "Get Started",
-    href: "#",
+    href: "/signup",
     featured: true,
   },
   {
@@ -60,11 +60,10 @@ export function PricingSection() {
           {tiers.map((tier) => (
             <div
               key={tier.name}
-              className={`relative flex flex-col p-6 md:p-8 rounded-lg border ${
-                tier.featured
-                  ? "border-primary/50 bg-primary/[0.03]"
-                  : "border-white/5 bg-white/[0.02] hover:border-white/10"
-              } transition-all duration-200`}
+              className={`relative flex flex-col p-6 md:p-8 rounded-lg border ${tier.featured
+                ? "border-primary/50 bg-primary/[0.03]"
+                : "border-white/5 bg-white/[0.02] hover:border-white/10"
+                } transition-all duration-200`}
             >
               {tier.featured && (
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-primary text-primary-foreground text-[10px] sm:text-xs font-medium rounded-full">
@@ -92,19 +91,17 @@ export function PricingSection() {
 
               <Link
                 href={tier.href}
-                className={`w-full py-2.5 text-center text-sm font-medium rounded transition-colors ${
-                  tier.featured
-                    ? "bg-primary text-primary-foreground hover:bg-primary/90"
-                    : "bg-white/5 text-white hover:bg-white/10 border border-white/5"
-                }`}
+                className={`w-full py-2.5 text-center text-sm font-medium rounded transition-colors ${tier.featured
+                  ? "bg-primary text-primary-foreground hover:bg-primary/90"
+                  : "bg-white/5 text-white hover:bg-white/10 border border-white/5"
+                  }`}
               >
                 {tier.cta}
               </Link>
-            </div> 
+            </div>
           ))}
         </div>
       </div>
     </section>
   )
 }
- 

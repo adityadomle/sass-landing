@@ -24,8 +24,8 @@ export function Navbar() {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-150 ${scrolled || mobileMenuOpen
-          ? "bg-black/95 backdrop-blur-md border-b border-white/10"
-          : "bg-transparent"
+        ? "bg-black/95 backdrop-blur-md border-b border-white/10"
+        : "bg-transparent"
         }`}
     >
       <div className="max-w-7xl md:max-w-full md:px-12 lg:px-16 xl:px-20 mx-auto px-5 sm:px-6">
@@ -62,7 +62,7 @@ export function Navbar() {
               Log in
             </Link>
             <Link
-              href="#get-started"
+              href="/signup"
               className="px-4 py-2 md:px-5 md:py-2.5 text-xs md:text-sm font-medium bg-white text-black rounded hover:bg-white/90 transition"
             >
               Get Started
@@ -103,6 +103,21 @@ export function Navbar() {
                 {item}
               </Link>
             ))}
+            <div className="h-px bg-white/10 my-2" />
+            <Link
+              href="/login"
+              onClick={() => setMobileMenuOpen(false)}
+              className="py-2.5 px-3 text-sm text-white/70 hover:text-white hover:bg-white/5 rounded transition"
+            >
+              Log in
+            </Link>
+            <Link
+              href="/signup"
+              onClick={() => setMobileMenuOpen(false)}
+              className="py-2.5 px-3 text-sm font-bold text-white hover:bg-white/10 rounded transition"
+            >
+              Get Started
+            </Link>
           </div>
         </div>
       </div>
