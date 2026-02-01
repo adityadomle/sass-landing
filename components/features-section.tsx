@@ -1,3 +1,9 @@
+"use client"
+
+import { useEffect, useRef } from "react"
+import gsap from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+
 const features = [
   {
     icon: (
@@ -76,31 +82,69 @@ const features = [
 ]
 
 export function FeaturesSection() {
-  return (
-    <section id="features" className="relative py-24 sm:py-28 md:py-32 lg:py-40 xl:py-48">
-      <div className="w-full max-w-7xl md:max-w-full mx-auto px-5 sm:px-6 md:px-12 lg:px-16 xl:px-20">
-        <div className="max-w-md md:max-w-2xl lg:max-w-3xl mb-14 md:mb-16 lg:mb-20">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium mb-4 md:mb-5">
-            Built for <span className="text-primary">scale</span>
-          </h2>
-          <p className="text-xs sm:text-sm md:text-base lg:text-lg text-muted-foreground leading-relaxed">
-            Everything you need to build production AI applications.
-          </p>
-        </div>
+  const sectionRef = useRef<HTMLDivElement>(null)
+  const triggerRef = useRef<HTMLDivElement>(null)
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 lg:gap-6 xl:gap-8">
-          {features.map((feature, i) => (
-            <div
-              key={i}
-              className="group p-5 md:p-6 lg:p-7 xl:p-8 rounded border border-white/5 bg-white/[0.02] hover:border-white/10 hover:bg-white/[0.04] transition-all duration-150"
-            >
-              <div className="w-9 h-9 md:w-10 md:h-10 lg:w-12 lg:h-12 rounded bg-white/5 flex items-center justify-center text-primary mb-4 md:mb-5">
-                {feature.icon}
-              </div>
-              <h3 className="text-xs sm:text-sm md:text-base font-medium mb-2 md:mb-2.5">{feature.title}</h3>
-              <p className="text-[11px] sm:text-xs md:text-sm text-muted-foreground leading-relaxed">{feature.desc}</p>
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger)
+
+    const section = sectionRef.current
+    const trigger = triggerRef.current
+
+    if (!section || !trigger) return
+
+    let ctx = gsap.context(() => {
+      gsap.fromTo(
+        section,
+        {
+          x: 0,
+        },
+        {
+          x: () => -(section.scrollWidth - window.innerWidth),
+          ease: "none",
+          scrollTrigger: {
+            trigger: trigger,
+            start: "top top",
+            end: () => `+=${section.scrollWidth - window.innerWidth}`,
+            scrub: 1,
+            pin: true,
+            invalidateOnRefresh: true,
+          },
+        }
+      )
+    }, trigger)
+
+    return () => ctx.revert()
+  }, [])
+  return (
+    <section className="overflow-hidden">
+      <div ref={triggerRef}>
+        <div className="relative h-screen flex flex-col justify-center py-24 sm:py-28 md:py-32 lg:py-40 xl:py-48 bg-black">
+          <div className="w-full max-w-7xl md:max-w-full mx-auto px-5 sm:px-6 md:px-12 lg:px-16 xl:px-20 mb-12">
+            <div className="max-w-md md:max-w-2xl lg:max-w-3xl">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium mb-4 md:mb-5">
+                Built for <span className="text-primary">scale</span>
+              </h2>
+              <p className="text-xs sm:text-sm md:text-base lg:text-lg text-muted-foreground leading-relaxed">
+                Everything you need to build production AI applications.
+              </p>
             </div>
-          ))}
+          </div>
+
+          <div ref={sectionRef} className="flex gap-4 md:gap-5 lg:gap-6 xl:gap-8 active:cursor-grabbing px-5 sm:px-6 md:px-12 lg:px-16 xl:px-20 w-fit">
+            {features.map((feature, i) => (
+              <div
+                key={i}
+                className="group w-[300px] md:w-[400px] lg:w-[450px] shrink-0 p-5 md:p-6 lg:p-7 xl:p-8 rounded border border-white/5 bg-white/[0.02] hover:border-white/10 hover:bg-white/[0.04] transition-all duration-150"
+              >
+                <div className="w-9 h-9 md:w-10 md:h-10 lg:w-12 lg:h-12 rounded bg-white/5 flex items-center justify-center text-primary mb-4 md:mb-5">
+                  {feature.icon}
+                </div>
+                <h3 className="text-xs sm:text-sm md:text-base font-medium mb-2 md:mb-2.5">{feature.title}</h3>
+                <p className="text-[11px] sm:text-xs md:text-sm text-muted-foreground leading-relaxed">{feature.desc}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

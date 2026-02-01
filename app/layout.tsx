@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import { JetBrains_Mono } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
+import LenisScroll from "@/components/lenis-scroll"
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
   title: "NexusAI - Intelligent Automation Platform",
   description:
     "Transform your workflow with next-generation AI. Build, automate, and scale with the most advanced AI platform.",
-    generator: 'v0.app'
+  generator: 'v0.app'
 }
 
 export default function RootLayout({
@@ -24,6 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full">
       <body className={`${jetbrainsMono.variable} font-sans antialiased h-full w-full`}>
+        <LenisScroll />
         {children}
         <Analytics />
       </body>
